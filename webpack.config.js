@@ -16,6 +16,10 @@ let resolve = {
 };
 let loaders = [
     {
+        test: /\.(png|jpg)$/,
+        loader: 'file?name=img/[name].[ext]'
+    },
+    {
         test: /\.vue$/,
         loader: "vue"
     },

@@ -5,12 +5,6 @@
         </div>
     </div>
 </template>
-<style>
-    .md-wrap {
-        width: 50%;
-        margin: 0 auto;
-    }
-</style>
 <script>
     import showdown from "showdown";
     import hljs from "highlight.js";

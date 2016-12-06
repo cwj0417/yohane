@@ -2,7 +2,7 @@
 here was a ppt app. with core function of displaying md file.
 md file will be separate into several parts according to `---` mark.
 
-### installing
+### installation
 +   clone this repo
 +   cd project root
 +   `npm i`

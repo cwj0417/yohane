@@ -1,0 +1,12 @@
+.turnpage-enter-active {
+  animation: turnpage-enter .5s;
+}
+@keyframes turnpage-enter {
+  from {
+    opacity: 0;
+    transform: rotateY(-180deg);
+  }
+  to {
+    opacity: 1;
+  }
+}

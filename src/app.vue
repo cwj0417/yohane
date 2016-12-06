@@ -1,6 +1,8 @@
 <template>
     <div>
-        <md :model="page" v-for="(page, index) in pages" v-show="index == currentPage"></md>
+        <transition name="turnpage" v-for="(page, index) in pages">
+            <md :model="page" v-show="index == currentPage"></md>
+        </transition>
     </div>
 </template>
 <script>
