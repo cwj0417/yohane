@@ -3,3 +3,4 @@ node_modules/
 dist/
 ppt/*
 npm-debug.log
+idea/
