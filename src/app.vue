@@ -29,14 +29,17 @@
             document.addEventListener('keyup', () => {
                 switch(event.keyCode) {
                     case 37:
+                    case 38:
                     this.pre();
                     break;
                     case 39:
+                    case 40:
                     this.next();
                     break;
                 }
             });
         }
     }
+
 
 </script>

@@ -14,6 +14,7 @@
   "author": "Jin",
   "license": "ISC",
   "dependencies": {
+    "highlight.js": "^9.8.0",
     "html-webpack-plugin": "^2.24.1",
     "lodash": "^4.17.2",
     "showdown": "^1.5.1",

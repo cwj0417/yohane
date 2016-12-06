@@ -1,10 +1,20 @@
 <template>
-    <div v-html="valued">
+    <div class="md-wrap">
+        <div v-html="valued">
 
+        </div>
     </div>
 </template>
+<style>
+    .md-wrap {
+        width: 50%;
+        margin: 0 auto;
+    }
+</style>
 <script>
     import showdown from "showdown";
+    import hljs from "highlight.js";
+    hljs.initHighlightingOnLoad();
     let converter = new showdown.Converter();
     export default {
         props: ["model"],

@@ -1,6 +1,7 @@
 let path = require('path');
 let entry = {
-    main: path.join(__dirname, "src", "main.js")
+    main: path.join(__dirname, "src", "main.js"),
+    styles: path.join(__dirname, "src", "styles", "index.scss")
 };
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let output = {
