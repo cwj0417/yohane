@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "dev": "webpack-dev-server --inline --hot --progress --port 9000 & node watch.js"
+    "yohane": "webpack-dev-server --inline --hot --progress --port 9000 & node watch.js"
   },
   "repository": {
     "type": "git",
