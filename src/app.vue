@@ -1,12 +1,25 @@
 <template>
-    <div>
-        <transition name="turnpage" v-for="(page, index) in pages">
-            <md :model="page" v-show="index == currentPage"></md>
-        </transition>
+    <div class="wrap">
+        <div id="content">
+            <div class="preview" v-for="(page, index) in pages" @click="currentPage = index">
+                <md :model="page"></md>
+            </div>
+        </div>
+        <div id="previewwrap">
+            <div class="header"></div>
+            <div id="ppt">
+                <transition name="turnpage" v-for="(page, index) in pages">
+                    <md :model="page" v-show="index == currentPage"></md>
+                </transition>
+            </div>
+            <div class="footer">
+                <a href="https://github.com/fjonas/yohane">© Yohane</a>
+            </div>
+        </div>
     </div>
 </template>
 <script>
-    import {metadata} from "./libs/service";
+    import {metadata, fullScreen} from "./libs/service";
     export default {
         data() {
             return {
@@ -25,11 +38,17 @@
             },
             next() {
                this.currentPage = Math.min(this.currentPage + 1, this.totalPage - 1);
+            },
+            fullScreen() {
+                fullScreen.switchouver(document.querySelector('#ppt'));
             }
         },
-        created() {
+        mounted() {
             document.addEventListener('keyup', () => {
                 switch(event.keyCode) {
+                    case 13:
+                    this.fullScreen();
+                    break;
                     case 37:
                     case 38:
                     this.pre();
@@ -42,6 +61,8 @@
             });
         }
     }
+
+
 
 
 </script>
