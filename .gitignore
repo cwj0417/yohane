@@ -4,3 +4,4 @@ dist/
 ppt/*
 npm-debug.log
 .idea/
+src/built.js
