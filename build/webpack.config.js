@@ -1,11 +1,12 @@
 let path = require('path');
+let root = path.join(__dirname, "..");
 let entry = {
-    main: path.join(__dirname, "src", "main.js"),
-    styles: path.join(__dirname, "src", "styles", "index.scss")
+    main: path.join(root, "src", "main.js"),
+    styles: path.join(root, "src", "styles", "index.scss")
 };
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let output = {
-    path: "dist",
+    path: path.join(__dirname, "dist"),
     filename: "[name].js"
 };
 let resolve = {
@@ -35,7 +36,7 @@ let loaders = [
 ];
 let plugins = [new HtmlWebpackPlugin({
     filename: "index.html",
-    template: path.join(__dirname, "src", "index.html")
+    template: path.join(root, "src", "index.html")
 })];
 let config = {
     entry,
@@ -46,7 +47,7 @@ let config = {
     },
     plugins,
     eslint: {
-        configFile: "./.eslintrc"
+        configFile: path.join(root, ".eslintrc")
     }
 };
 module.exports = config;

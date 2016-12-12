@@ -6,7 +6,6 @@ md file will be separate into several parts according to `---` mark.
 +   clone this repo
 +   cd project root
 +   `npm i`
-+   `npm i webpack-dev-server -g`
 
 ### usage
 +   edit `ppt/index.md`
