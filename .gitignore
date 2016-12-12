@@ -5,3 +5,4 @@ ppt/*
 npm-debug.log
 .idea/
 src/built.js
+.DS_Store
