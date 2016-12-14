@@ -1,14 +1,14 @@
 {
   "name": "yohane",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "an ppt app with displaying markdown",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "yohane": "node build/run.js & node watch.js",
     "patch": "npm version patch && npm publish",
-	"git-push" : "git add . && git commit -m'updated' && git push",
-	"patch-push" : "npm run git-push && npm run patch"
+    "git-push": "git add . && git commit -m'updated' && git push",
+    "patch-push": "npm run git-push && npm run patch"
   },
   "bin": {
     "yohane": "./bin/yohane"
