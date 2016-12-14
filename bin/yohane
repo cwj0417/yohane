@@ -3,6 +3,7 @@ let shell = require("shelljs");
 let argv = require("yargs").argv;
 let path = require("path");
 let root = process.cwd();
+console.log(__dirname);
 console.log(root);
 
 // let app = require("../build/run");

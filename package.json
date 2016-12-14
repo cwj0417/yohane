@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "yohane": "node build/run.js & node watch.js",
-    "patch": "npm version patch && npm publish"
+    "patch": "npm version patch && npm publish",
+	"git-push" : "git add . && git commit -m'updated' && git push",
+	"patch-push" : "npm run git-push && npm run patch"
   },
   "bin": {
     "yohane": "./bin/yohane"
