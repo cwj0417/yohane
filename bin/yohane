@@ -6,8 +6,8 @@ let root = process.cwd();
 console.log(__dirname);
 console.log(root);
 
-// let app = require("../build/run");
+let app = require("../build/run");
 
-// require("../watch");
+require("../watch");
 
-// app.listen(argv.port || 9000);
+app.listen(argv.port || 9000);
