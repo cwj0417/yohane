@@ -3,6 +3,7 @@ let shell = require("shelljs");
 let argv = require("yargs").argv;
 let path = require("path");
 let root = process.cwd();
+shell.mkdir("-p", path.join(__dirname, "runtime"));
 console.log(__dirname);
 console.log(root);
 
