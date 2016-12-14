@@ -31,23 +31,19 @@ let loaders = [
     {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: "babel"
+        loader: "babel?presets[]=stage-2!eslint-loader"
     }
 ];
 let plugins = [new HtmlWebpackPlugin({
     filename: "index.html",
     template: path.join(root, "src", "index.html")
 })];
-console.log(path.resolve(__dirname, "node_modules"));
 let config = {
     entry,
     output,
     resolve,
     module: {
         loaders
-    },
-    resolveLoader: {
-        modulesDirectories: [path.resolve(__dirname, "node_modules")]
     },
     plugins,
     eslint: {

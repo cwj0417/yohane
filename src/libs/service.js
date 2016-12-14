@@ -1,4 +1,4 @@
-import raw from "../built";
+import raw from "../../runtime/built";
 export let metadata = raw.map(each => unescape(each));
 export let fullScreen = {
     switchouver(ele) {

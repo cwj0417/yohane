@@ -10,6 +10,7 @@ app.use(webpackDevMiddleware(compiler, {
     // options
 }));
 
-app.use(express.static(path.resolve(__dirname, "..", "ppt")));
 
-app.listen(9000);
+app.use(express.static(path.resolve(__dirname)));
+
+module.exports = app;

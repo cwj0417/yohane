@@ -1,5 +1,12 @@
 #! /usr/bin/env node
 let shell = require("shelljs");
 let argv = require("yargs").argv;
+let path = require("path");
+let root = process.cwd();
+console.log(root);
 
-shell.exec("npm run yohane");
+// let app = require("../build/run");
+
+// require("../watch");
+
+// app.listen(argv.port || 9000);
