@@ -19,6 +19,7 @@
     </div>
 </template>
 <script>
+    // 尝试修改 webpack 设置 resolve module 把下面的import 改成 service
     import {metadata, fullScreen} from "./libs/service";
     export default {
         data() {

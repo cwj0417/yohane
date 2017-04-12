@@ -1,14 +1,21 @@
 #! /usr/bin/env node
-let shell = require("shelljs");
-let argv = require("yargs").argv;
-let path = require("path");
-let root = process.cwd();
-shell.mkdir("-p", path.join(__dirname, "runtime"));
-console.log(__dirname);
-console.log(root);
+const shell = require("shelljs");
+const argv = require("yargs").argv;
+const path = require("path");
+const root = process.cwd();
+const libRoot = path.resolve(__dirname, "..");
+const workRoot = path.resolve(root);
 
-let app = require("../build/run");
+console.log(libRoot, workRoot);
 
-require("../watch");
+shell.mkdir("-p", path.resolve(libRoot, "runtime"));
 
-app.listen(argv.port || 9000);
+const app = require(path.resolve(libRoot, "build", "run.js"))
+app.run(argv.port || 9000)
+//这里以后可以ifconfig/grep一下, 要看下shell的兼容性
+app.open(`http:localhost:${argv.port || 9000}`)
+//watch还没弄
+
+const watch = require(path.resolve(libRoot, "watch.js"));
+
+watch.watch(path.resolve(workRoot, "test.md"), path.resolve(libRoot, "runtime", "built.js"))

@@ -1,12 +1,13 @@
-let express = require("express");
-let app = express();
-let path = require("path");
-let webpackDevMiddleware = require("webpack-dev-middleware");
-let webpack = require("webpack");
-let config = require("./webpack.config.js");
-let work = path.resolve(process.cwd());
+const express = require("express");
+const app = express();
+const opn = require("opn");
+const path = require("path");
+const webpackDevMiddleware = require("webpack-dev-middleware");
+const webpack = require("webpack");
+const config = require("./webpack.config.js");
+const work = path.resolve(process.cwd());
 
-let compiler = webpack(config);
+const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
     // options
 }));
@@ -14,4 +15,12 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(express.static(path.resolve(work)));
 
-module.exports = app;
+
+module.exports = {
+    run (port) {
+        app.listen(port)
+    },
+    open (url) {
+        opn(url)
+    }
+}

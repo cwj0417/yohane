@@ -1,21 +1,25 @@
-let path = require('path');
-let root = path.join(__dirname, "..");
-let entry = {
+const path = require('path');
+const root = path.join(__dirname, "..");
+const entry = {
     main: path.join(root, "src", "main.js"),
     styles: path.join(root, "src", "styles", "index.scss")
 };
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let output = {
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const output = {
     path: path.join(__dirname, "dist"),
     filename: "[name].js"
 };
-let resolve = {
-    extensions: ["", ".js", ".vue"],
+const resolve = {
+    extensions: [".js", ".vue"],
     alias: {
-        "vue$": "vue/dist/vue.js"
-    }
+        "vue$": path.resolve(root, "node_modules", "vue/dist/vue.esm.js")
+    },
+    modules: [
+        path.join(root, "src"),
+        path.resolve(root, "node_modules")
+    ]
 };
-let loaders = [
+const rules = [
     {
         test: /\.(png|jpg)$/,
         loader: 'file?name=img/[name].[ext]'
@@ -26,32 +30,28 @@ let loaders = [
     },
     {
         test: /\.scss$/,
-        loader: "style!css!sass"
+        use: ["style", "css", "sass"]
     },
     {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: "babel"
+        use: ["babel", "eslint"]
     }
 ];
-let plugins = [new HtmlWebpackPlugin({
+const plugins = [new HtmlWebpackPlugin({
     filename: "index.html",
     template: path.join(root, "src", "index.html")
 })];
-console.log(path.resolve(__dirname, "node_modules"));
-let config = {
+const config = {
     entry,
     output,
     resolve,
     module: {
-        loaders
+        rules
     },
     resolveLoader: {
-        modulesDirectories: [path.resolve(__dirname, "node_modules")]
+        moduleExtensions: ["-loader"]
     },
-    plugins,
-    eslint: {
-        configFile: path.join(root, ".eslintrc")
-    }
+    plugins
 };
 module.exports = config;
