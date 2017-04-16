@@ -1,0 +1,5 @@
+{
+  "config": "config.json",
+  "port": 9000,
+  "entry": "index.md"
+}

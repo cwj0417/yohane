@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const fs = require("fs");
 const shell = require("shelljs");
 const argv = require("yargs").argv;
 const path = require("path");
@@ -6,16 +7,25 @@ const root = process.cwd();
 const libRoot = path.resolve(__dirname, "..");
 const workRoot = path.resolve(root);
 
-console.log(libRoot, workRoot);
+// load configs
+
+let config = require("../defaultConfig")
+let configRoute = argv.config || "config.json"
+let fileConfig = fs.existsSync(configRoute) ? require(path.resolve(workRoot, configRoute)) : {};
+for (let key in config) {
+    key in fileConfig && (config[key] = fileConfig[key])
+    key in argv && (config[key] = argv[key])
+}
+console.log(config)
 
 shell.mkdir("-p", path.resolve(libRoot, "runtime"));
 
 const app = require(path.resolve(libRoot, "build", "run.js"))
+app.static(workRoot)
 app.run(argv.port || 9000)
 //这里以后可以ifconfig/grep一下, 要看下shell的兼容性
-app.open(`http:localhost:${argv.port || 9000}`)
-//watch还没弄
+app.open(`http:localhost:${config.port}`)
 
 const watch = require(path.resolve(libRoot, "watch.js"));
 
-watch.watch(path.resolve(workRoot, "test.md"), path.resolve(libRoot, "runtime", "built.js"))
+watch.watch(path.resolve(workRoot, config.entry), path.resolve(libRoot, "runtime", "built.js"))

@@ -14,8 +14,30 @@ npm i -g yohane
 +   press `enter` switchover preview mode and full-screen mode
 +   press up/left accessing to previous page and down/right to the next.
 
+### customization
+yohane have [default config](defaultConfig.json) and have 2 ways setting config, and basedir was current path running yohane.
++   use cli args to set config like:
+    ```bash
+    yohane --entry "my_ppt.md" --bgImg "bg.png"
+    ```
++   write config file named `config.json` or use cli args `config` to dispatch configs like:
+
+    my_config.json
+    ```json
+    {
+        "entry": "my_ppt.md",
+        "bgImg": "bg.png"
+    }
+    ```
+    run in cli
+    ```bash
+    yohane --config "my_config.json"
+    ```
+yohane will merge these 3 above by priority of cli > config file > default config
+
 ### configurations
-+   to be continued
+
+
 
 ### feature
 +   separate md file into multipart ppt according to `---` mark.

@@ -10,12 +10,18 @@ const output = {
     filename: "[name].js"
 };
 const resolve = {
-    extensions: [".js", ".vue"],
+    extensions: [".js", ".json", ".vue"],
     alias: {
         "vue$": path.resolve(root, "node_modules", "vue/dist/vue.esm.js")
     },
     modules: [
         path.join(root, "src"),
+        path.resolve(root, "node_modules")
+    ]
+};
+const resolveLoader = {
+    moduleExtensions: ["-loader"],
+    modules: [
         path.resolve(root, "node_modules")
     ]
 };
@@ -49,9 +55,7 @@ const config = {
     module: {
         rules
     },
-    resolveLoader: {
-        moduleExtensions: ["-loader"]
-    },
+    resolveLoader,
     plugins
 };
 module.exports = config;
