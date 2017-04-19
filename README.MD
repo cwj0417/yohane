@@ -7,6 +7,11 @@ first you should have [nodeJs](https://nodejs.org) installed.
 ```bash
 npm i -g yohane
 ```
+and
+```bash
+npm up -g yohane
+```
+to update yohane to latest version
 
 ### usage
 +   `cd` to your work directive

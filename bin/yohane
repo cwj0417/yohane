@@ -21,7 +21,7 @@ shell.mkdir("-p", path.resolve(libRoot, "runtime"));
 
 const app = require(path.resolve(libRoot, "build", "run.js"))
 app.static(workRoot)
-app.run(argv.port || 9000)
+app.run(config.port)
 //这里以后可以ifconfig/grep一下, 要看下shell的兼容性
 app.open(`http:localhost:${config.port}`)
 
