@@ -16,7 +16,6 @@ for (let key in config) {
     key in fileConfig && (config[key] = fileConfig[key])
     key in argv && (config[key] = argv[key])
 }
-console.log(config)
 
 shell.mkdir("-p", path.resolve(libRoot, "runtime"));
 
